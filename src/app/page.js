@@ -7,6 +7,7 @@ export default function Home() {
       <main className="min-h-screen">
         <h1>Home Page</h1>
         <Link href="/about">Link to About Page</Link>
+        <br />
         <Link href="/users">Users</Link>{" "}
       </main>
     </>
