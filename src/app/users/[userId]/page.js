@@ -4,10 +4,16 @@ import getUserPosts from "../../../../lib/getUserPosts";
 import UserPosts from "./components/UserPosts";
 import getAllUsers from "../../../../lib/getAllUsers";
 
+import { notFound } from "next/navigation";
+
 // Generate Metadata
 export const generateMetadata = async ({ params }) => {
   const userData = getUser(params.userId);
   const user = await userData;
+
+  if (!user.firstname && !user.lastname) {
+    return { title: "User Not Found !!!" };
+  }
 
   return {
     title: `${user.firstname} ${user.lastname}`,
@@ -30,6 +36,8 @@ const UserPage = async ({ params }) => {
   //   const [user, userPosts] = await Promise.all([userData, userPostsData]);
 
   const user = await userData;
+
+  if (!user.firstname && !user.lastname) return notFound();
 
   return (
     <>
