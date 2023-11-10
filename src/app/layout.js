@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -11,8 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav>Nav Section</nav>
+      <body className={`${inter.className} bg-slate-800`}>
+        {/* <nav>Nav Section</nav> */}
+        <Navbar />
         {children}
       </body>
     </html>
